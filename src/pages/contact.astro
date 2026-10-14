@@ -1,0 +1,16 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../data/site";
+---
+<Base title="Contact">
+  <div class="wrap page">
+    <p class="kicker">Contact</p>
+    <h1>Let’s talk about a robotics PhD</h1>
+    <p>{site.lookingFor}</p>
+    <p>Email: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+    <p>Phone: <a href={site.phoneHref}>{site.phone}</a></p>
+    <p>GitHub: <a href={site.github}>{site.github}</a></p>
+    <p>LinkedIn: <a href={site.linkedin}>{site.linkedin}</a></p>
+    <p class="meta">{site.location}</p>
+  </div>
+</Base>

@@ -1,0 +1,25 @@
+---
+import { paperCopyright } from "../data/copyright";
+const { title = "Documents", items = [] } = Astro.props;
+const hasCopyright = items.some((item) => item.copyright);
+---
+{items.length > 0 && (
+  <section class="docs">
+    <p class="kicker">{title}</p>
+    <h2>Open the full file</h2>
+    <div class="doc-grid">
+      {items.map((item) => (
+        <a class="doc-card" href={item.href} target="_blank" rel="noopener">
+          {item.preview && (
+            <img class="doc-preview" src={item.preview} alt="" />
+          )}
+          <div class="doc-meta">
+            <strong>{item.label}</strong>
+            <span>{item.kind ?? "PDF"} · click to open</span>
+          </div>
+        </a>
+      ))}
+    </div>
+    {hasCopyright && <p class="copyright-note">{paperCopyright}</p>}
+  </section>
+)}

@@ -1,0 +1,17 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../data/site";
+---
+<Base title="About">
+  <div class="wrap page">
+    <p class="kicker">About</p>
+    <h1>A short story, not a CV dump</h1>
+    <img class="cover-img" src={site.photo} alt={site.name} style="max-width: 220px; aspect-ratio: 1; object-position: top; border-radius: 50%;" />
+    {site.about.split("\n\n").map((para) => <p>{para}</p>)}
+    <h2>Research interests</h2>
+    <div class="chips">
+      {site.interests.map((item) => <span class="chip">{item}</span>)}
+    </div>
+    <p class="meta" style="margin-top: 1.4rem;">Based in {site.location}. Languages: {site.languages.join(", ")}.</p>
+  </div>
+</Base>

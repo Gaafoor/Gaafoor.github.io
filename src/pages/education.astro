@@ -1,0 +1,29 @@
+---
+import Base from "../layouts/Base.astro";
+import DocList from "../components/DocList.astro";
+import { education } from "../data/education";
+---
+<Base title="Education">
+  <div class="wrap page">
+    <p class="kicker">Education</p>
+    <h1>Degrees and courses</h1>
+    {education.map((item) => (
+      <article class="card entry">
+        <p class="meta">{item.dates}{item.grade ? ` · ${item.grade}` : ""}</p>
+        <h2>{item.degree}</h2>
+        <p>{item.institution}</p>
+        <p>{item.summary}</p>
+        {"thesisLink" in item && item.thesisLink && (
+          <p><a href={item.thesisLink}>Graduation thesis project →</a></p>
+        )}
+        <h3>Selected subjects</h3>
+        <div class="chips">
+          {item.subjects.map((subject) => <span class="chip">{subject}</span>)}
+        </div>
+        {item.documents?.length ? (
+          <DocList title="Transcripts and certificates" items={item.documents} />
+        ) : null}
+      </article>
+    ))}
+  </div>
+</Base>

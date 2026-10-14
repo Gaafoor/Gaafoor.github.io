@@ -1,0 +1,19 @@
+---
+import Base from "../layouts/Base.astro";
+import { skillGroups } from "../data/skills";
+---
+<Base title="Skills">
+  <div class="wrap page">
+    <p class="kicker">Skills</p>
+    <h1>Tools in context</h1>
+    {skillGroups.map((group) => (
+      <article class="card entry">
+        <h2>{group.name}</h2>
+        <div class="chips">
+          {group.items.map((item) => <span class="chip">{item}</span>)}
+        </div>
+        <p style="margin-top: 0.8rem;">Used in: {group.usedIn}</p>
+      </article>
+    ))}
+  </div>
+</Base>

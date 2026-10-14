@@ -1,0 +1,30 @@
+---
+import Base from "../layouts/Base.astro";
+import DocList from "../components/DocList.astro";
+import { awards } from "../data/awards";
+---
+<Base title="Awards">
+  <div class="wrap page">
+    <p class="kicker">Awards</p>
+    <h1>Competitions and prizes</h1>
+    {awards.map((item) => (
+      <article class="card entry">
+        <p class="meta">{item.year}</p>
+        <h2>{item.title}</h2>
+        <p>{item.detail}</p>
+        {item.project && <p><a href={item.project}>Related project →</a></p>}
+        {item.certificate && (
+          <DocList
+            title="Certificate"
+            items={[{
+              label: item.title,
+              kind: "Certificate",
+              href: item.certificate,
+              preview: item.preview,
+            }]}
+          />
+        )}
+      </article>
+    ))}
+  </div>
+</Base>

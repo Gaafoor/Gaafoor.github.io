@@ -1,0 +1,78 @@
+---
+import Base from "../../layouts/Base.astro";
+import DocList from "../../components/DocList.astro";
+import { projects } from "../../data/projects";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const media = project.media ?? [];
+const documents = project.documents ?? [];
+const extraLinks = project.links ?? [];
+const keywords = project.keywords ?? [];
+---
+<Base title={project.title}>
+  <div class="wrap page">
+    <p class="kicker">{project.period}</p>
+    <h1>{project.title}</h1>
+    <p class="meta">{project.tags.join(" · ")}</p>
+    {project.cover && <img class="cover-img" src={project.cover} alt={project.title} />}
+    <p>{project.summary}</p>
+    <div class="chips" style="margin-bottom: 1rem;">
+      {project.tools.map((tool) => <span class="chip">{tool}</span>)}
+    </div>
+    {keywords.length > 0 && (
+      <div class="chips" style="margin-bottom: 1rem;">
+        {keywords.map((word) => <span class="chip">{word}</span>)}
+      </div>
+    )}
+    {project.highlights.length > 0 && (
+      <ul>
+        {project.highlights.map((item) => <li>{item}</li>)}
+      </ul>
+    )}
+    <p>{project.body}</p>
+    {media.length > 0 && (
+      <div class="gallery">
+        {media.map((item) => (
+          <figure>
+            {item.type === "video" ? (
+              <video src={item.src} controls preload="metadata"></video>
+            ) : (
+              <img src={item.src} alt={item.caption} />
+            )}
+            <figcaption>{item.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    )}
+    <DocList items={documents} />
+    {project.code && (
+      <section class="docs">
+        <p class="kicker">Code</p>
+        <h2>Repository</h2>
+        <a class="code-card" href={project.code.href} target="_blank" rel="noopener">
+          <strong>{project.code.label}</strong>
+          <span>{project.code.note ?? "GitHub"} · open repository</span>
+        </a>
+      </section>
+    )}
+    {extraLinks.length > 0 && (
+      <section class="docs">
+        <p class="kicker">Links</p>
+        {extraLinks.map((link) => (
+          <p><a href={link.href} target="_blank" rel="noopener">{link.label}</a></p>
+        ))}
+      </section>
+    )}
+    {!media.length && !documents.length && !project.code && !extraLinks.length && (
+      <div class="placeholder">Media for this project is not on the site yet.</div>
+    )}
+    <p><a href="/projects/">← All projects</a></p>
+  </div>
+</Base>

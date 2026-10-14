@@ -1,0 +1,27 @@
+---
+import Base from "../../layouts/Base.astro";
+import { projects, filters } from "../../data/projects";
+---
+<Base title="Projects">
+  <div class="wrap page">
+    <p class="kicker">Projects</p>
+    <h1>All work</h1>
+    <div class="chips" style="margin-bottom: 1.2rem;">
+      {filters.map((filter) => <span class="chip">{filter}</span>)}
+    </div>
+    <p class="muted">Clickable filters come next. For now every project is listed.</p>
+    <div class="grid-2">
+      {projects.map((project) => (
+        <a class="card" href={`/projects/${project.slug}/`} style="color: inherit; text-decoration: none;">
+          {project.cover && <img class="cover-img" src={project.cover} alt="" />}
+          <p class="meta">{project.period}</p>
+          <h3>{project.title}</h3>
+          <p>{project.summary}</p>
+          <div class="chips">
+            {project.tags.map((tag) => <span class="chip">{tag}</span>)}
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,45 @@
+---
+import Base from "../layouts/Base.astro";
+import DocList from "../components/DocList.astro";
+import { experience } from "../data/experience";
+---
+<Base title="Experience">
+  <div class="wrap page">
+    <p class="kicker">Experience</p>
+    <h1>Labs, internships, and teams</h1>
+    {experience.map((item) => (
+      <article class="card entry">
+        <p class="meta">{item.dates} · {item.location}</p>
+        <h2>{item.title}</h2>
+        <p>{item.org}</p>
+        <ul>
+          {item.bullets.map((bullet) => <li>{bullet}</li>)}
+        </ul>
+        {item.github && <p><a href={item.github}>GitHub</a></p>}
+        {item.supervisor && <p class="meta">Supervisor: {item.supervisor}</p>}
+        {item.certificate && (
+          <DocList
+            title="Certificate"
+            items={[{
+              label: `${item.org} certificate`,
+              kind: "PDF",
+              href: item.certificate,
+              preview: item.certificatePreview,
+            }]}
+          />
+        )}
+        {item.photos?.length ? (
+          <div class="gallery">
+            {item.photos.map((photo) => (
+              <figure>
+                <img src={photo} alt="" />
+              </figure>
+            ))}
+          </div>
+        ) : (
+          <div class="placeholder">Photo gallery placeholder — add workplace / lab photos when you have permission to publish them.</div>
+        )}
+      </article>
+    ))}
+  </div>
+</Base>
