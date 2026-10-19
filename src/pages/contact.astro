@@ -8,6 +8,11 @@ import { site } from "../data/site";
     <h1>Let’s talk about a robotics PhD</h1>
     <p>{site.lookingFor}</p>
     <p>Email: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+    {site.universityEmails.map((item) => (
+      <p>
+        {item.label}: <a href={`mailto:${item.email}`}>{item.email}</a>
+      </p>
+    ))}
     <p>Phone: <a href={site.phoneHref}>{site.phone}</a></p>
     <p>GitHub: <a href={site.github}>{site.github}</a></p>
     <p>LinkedIn: <a href={site.linkedin}>{site.linkedin}</a></p>

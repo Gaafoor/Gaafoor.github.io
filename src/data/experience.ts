@@ -113,6 +113,24 @@ export const experience = [
     supervisor: "Reference available on request",
   },
   {
+    id: "asme",
+    title: "Head of Technical Committee",
+    org: "ASME E-JUST Student Section",
+    location: "Alexandria, Egypt",
+    dates: "2022 – 2023",
+    bullets: [
+      "Led the technical committee of the ASME student section at E-JUST while an active ASME member.",
+      "Organized technical activities and supported student engineering projects under the ASME chapter.",
+    ],
+    github: "",
+    photos: [
+      "/media/asme/1.jpg",
+      "/media/asme/2.jpg",
+      "/media/asme/3.jpg",
+    ],
+    supervisor: "",
+  },
+  {
     id: "robotics-club",
     title: "Technical Mentor",
     org: "E-JUST Robotics Club",

@@ -6,6 +6,10 @@ export const site = {
   role: "Robotics M.Sc. student — Erasmus Mundus IFRoS",
   location: "Girona, Spain",
   email: "mostafa.ahmed1292002@gmail.com",
+  universityEmails: [
+    { label: "ELTE", email: "ee2p7o@inf.elte.hu" },
+    { label: "UdG", email: "u6111119@correu.udg.edu" },
+  ],
   phone: "+34 679 678 934",
   phoneHref: "tel:+34679678934",
   github: "https://github.com/Gaafoor",
