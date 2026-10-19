@@ -19,6 +19,20 @@ export const education = [
       "Vehicles & Sensors",
       "Sensor Fusion",
     ],
+    contacts: [
+      {
+        label: "UdG / IFRoS coordination",
+        email: "info@ifrosmaster.org",
+      },
+      {
+        label: "ELTE / IFRoS coordination",
+        email: "ifros@inf.elte.hu",
+      },
+      {
+        label: "Prof. Narcís Palomeras — IFRoS EMJMD coordinator, Universitat de Girona",
+        note: "Academic reference available on request",
+      },
+    ],
     documents: [
       {
         label: "IFRoS transcript",

@@ -20,6 +20,25 @@ import { education } from "../data/education";
         <div class="chips">
           {item.subjects.map((subject) => <span class="chip">{subject}</span>)}
         </div>
+        {"contacts" in item && item.contacts?.length ? (
+          <div style="margin-top: 1rem;">
+            <h3>Program contacts / references</h3>
+            <ul>
+              {item.contacts.map((c) => (
+                <li>
+                  {c.label}
+                  {c.email ? (
+                    <>
+                      {" — "}
+                      <a href={`mailto:${c.email}`}>{c.email}</a>
+                    </>
+                  ) : null}
+                  {c.note ? ` — ${c.note}` : null}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
         {item.documents?.length ? (
           <DocList title="Transcripts and certificates" items={item.documents} />
         ) : null}

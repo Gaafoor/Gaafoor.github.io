@@ -16,7 +16,7 @@ export const experience = [
   },
   {
     id: "ois",
-    title: "Sales Engineer",
+    title: "Technical Sales Engineer",
     org: "Origin Integrated Solutions (OIS)",
     location: "Cairo, Egypt",
     dates: "Apr 2025 – Sep 2025",
@@ -54,7 +54,7 @@ export const experience = [
   {
     id: "racing",
     title: "Team Leader",
-    org: "E-JUST Racing Team",
+    org: "E-JUST Racing Team (ERT)",
     location: "Egypt",
     dates: "Apr 2022 – Feb 2025",
     bullets: [
@@ -63,7 +63,15 @@ export const experience = [
       "Mentored junior engineers on vehicle systems and competition delivery.",
     ],
     github: "",
-    photos: [],
+    photos: [
+      "/media/ert/1.jpg",
+      "/media/ert/2.jpg",
+      "/media/ert/3.jpg",
+      "/media/ert/4.jpg",
+      "/media/ert/5.jpg",
+      "/media/ert/6.jpg",
+      "/media/ert/7.jpg",
+    ],
     supervisor: "",
   },
   {

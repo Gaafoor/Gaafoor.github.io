@@ -1,13 +1,33 @@
 ---
 import Base from "../layouts/Base.astro";
-import { publications } from "../data/publications";
+import { arxivPreprints, researchWork } from "../data/publications";
 import { paperCopyright } from "../data/copyright";
 ---
 <Base title="Publications">
   <div class="wrap page">
     <p class="kicker">Publications</p>
     <h1>Theses and papers</h1>
-    {publications.map((item) => (
+
+    <h2 class="pub-section">arXiv preprints</h2>
+    {arxivPreprints.map((item) => (
+      <article class="card entry">
+        <p class="meta">{item.year} · {item.status}</p>
+        <h2>{item.title}</h2>
+        <p>{item.authors}</p>
+        <p>{item.venue}</p>
+        <p>
+          {item.link ? <a href={item.link}>arXiv / external PDF</a> : null}
+          {item.link && item.code ? " · " : null}
+          {"code" in item && item.code ? <a href={item.code}>GitHub code</a> : null}
+        </p>
+      </article>
+    ))}
+
+    <hr class="pub-break" />
+
+    <h2 class="pub-section">Research work (not published)</h2>
+    <p class="muted">Course reports and other research writing that are not peer-reviewed publications.</p>
+    {researchWork.map((item) => (
       <article class="card entry">
         <p class="meta">{item.year} · {item.status}</p>
         <h2>{item.title}</h2>
@@ -16,8 +36,6 @@ import { paperCopyright } from "../data/copyright";
         {"keywords" in item && item.keywords && <p class="meta">{item.keywords}</p>}
         <p>
           {item.link ? <a href={item.link}>{item.link.startsWith("http") ? "arXiv / external PDF" : "Open PDF"}</a> : null}
-          {item.link && item.code ? " · " : null}
-          {"code" in item && item.code ? <a href={item.code}>GitHub code</a> : null}
         </p>
         {"copyright" in item && item.copyright && <p class="copyright-note">{paperCopyright}</p>}
       </article>
