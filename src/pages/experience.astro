@@ -15,8 +15,25 @@ import { experience } from "../data/experience";
         <ul>
           {item.bullets.map((bullet) => <li>{bullet}</li>)}
         </ul>
-        {item.github && <p><a href={item.github}>GitHub</a></p>}
-        {item.supervisor && <p class="meta">Supervisor: {item.supervisor}</p>}
+        {item.github && (
+          <p>
+            <a href={item.github} target="_blank" rel="noopener">GitHub repository</a>
+          </p>
+        )}
+        {item.supervisor && (
+          <p class="meta">
+            Reference: {item.supervisor}
+            {item.supervisorEmail && (
+              <>
+                {" · "}
+                <a href={`mailto:${item.supervisorEmail}`}>{item.supervisorEmail}</a>
+              </>
+            )}
+          </p>
+        )}
+        {item.letters?.length ? (
+          <DocList title="Recommendation letters" items={item.letters} />
+        ) : null}
         {item.certificate && (
           <DocList
             title="Certificate"
