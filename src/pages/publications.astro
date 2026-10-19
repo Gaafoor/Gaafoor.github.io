@@ -18,7 +18,6 @@ import { paperCopyright } from "../data/copyright";
           {item.link ? <a href={item.link}>{item.link.startsWith("http") ? "arXiv / external PDF" : "Open PDF"}</a> : null}
           {item.link && item.code ? " · " : null}
           {"code" in item && item.code ? <a href={item.code}>GitHub code</a> : null}
-          {!item.link && !("code" in item && item.code) ? <span class="placeholder">PDF placeholder</span> : null}
         </p>
         {"copyright" in item && item.copyright && <p class="copyright-note">{paperCopyright}</p>}
       </article>
