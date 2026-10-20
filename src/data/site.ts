@@ -18,7 +18,7 @@ export const site = {
   lookingFor:
     "Open to master’s thesis opportunities starting immediately; seeking a robotics PhD starting 2027.",
   intro:
-    "My work sits at the seams of a robot system — where perception hands off to estimation, where planning meets control, where simulation meets the platform. That is usually where things break, and it is where I like to work.",
+    "My work sits at the seams of a robot system, where perception hands off to estimation, where planning meets control, where simulation meets the platform. That is usually where things break, and it is where I like to work.",
   about: `I am a robotics engineer and master’s student working on the gap between a system that works in simulation and one that works in the field. My work spans perception, estimation, planning, learning, and control, and I am most engaged when a project requires all of them at once — because the failures usually happen at the seams between subsystems rather than inside any one of them.
 
 That question has taken me across several domains. Field robotics taught me that sensor degradation is the default, not the exception. Space robotics software-in-the-loop work taught me how much of autonomy is really about modeling uncertainty honestly. Manipulation taught me that contact is where clean assumptions die. Underwater reconstruction taught me to distrust any pipeline that has never seen real imagery. Different robots, same lesson.
