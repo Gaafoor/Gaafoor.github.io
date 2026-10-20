@@ -1,7 +1,7 @@
 export const skillGroups = [
   {
     name: "Robotics",
-    items: ["ROS 2", "RViz", "SLAM", "Gazebo", "MuJoCo", "NVIDIA Isaac Sim", "Motion planning"],
+    items: ["ROS 2", "RViz", "SLAM", "Gazebo", "MuJoCo", "NVIDIA Isaac Sim", "Basilisk", "Motion planning"],
     usedIn: "TurtleBot Graph-SLAM, Silvanus, CATEC SIL, Minesweepers",
   },
   {
@@ -10,9 +10,19 @@ export const skillGroups = [
     usedIn: "Underwater SfM, ArUco pick-and-place, microscopy hackathon",
   },
   {
+    name: "Learning & Optimization",
+    items: [
+      "Reinforcement Learning",
+      "Model Predictive Control (MPC)",
+      "Trajectory optimization (acados)",
+      "BSK-RL",
+    ],
+    usedIn: "CATEC (BSK-RL, MPC and acados in Basilisk), IFRoS RL coursework and labs",
+  },
+  {
     name: "Control",
     items: ["Task-priority control", "Inverse kinematics", "PID", "LQR", "Resolved-rate control"],
-    usedIn: "Vehicle-manipulator system, industrial arms, thesis control work",
+    usedIn: "Vehicle-manipulator system, industrial arms, self-balancing robot",
   },
   {
     name: "Programming",
