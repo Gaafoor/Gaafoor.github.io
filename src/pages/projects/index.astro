@@ -9,7 +9,6 @@ import { projects, filters } from "../../data/projects";
     <div class="chips" style="margin-bottom: 1.2rem;">
       {filters.map((filter) => <span class="chip">{filter}</span>)}
     </div>
-    <p class="muted">Clickable filters come next. For now every project is listed.</p>
     <div class="grid-2">
       {projects.map((project) => (
         <a class="card" href={`/projects/${project.slug}/`} style="color: inherit; text-decoration: none;">
